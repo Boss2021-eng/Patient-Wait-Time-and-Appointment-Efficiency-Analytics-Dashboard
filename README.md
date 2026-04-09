@@ -72,8 +72,8 @@ The dataset includes:
 ---
 
 ## 🚀 Live Dashboard
+👉 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMDM4ZGRjZjEtYzJkMi00YmY4LTliNTktMTZjNDNiN2Y0ZjNjIiwidCI6IjBmYmVhNWZhLWNiN2UtNDllYS1hYzgyLTJmYTBmZTllZjY5YyJ9)
 
-👉 [View Interactive Dashboard]([https://your-powerbi-link-here](https://app.powerbi.com/view?r=eyJrIjoiMDM4ZGRjZjEtYzJkMi00YmY4LTliNTktMTZjNDNiN2Y0ZjNjIiwidCI6IjBmYmVhNWZhLWNiN2UtNDllYS1hYzgyLTJmYTBmZTllZjY5YyJ9))
 
 ---
 

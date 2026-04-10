@@ -1,13 +1,13 @@
-# Patient-Wait-Time-and-Appointment-Efficiency-Analytics-Dashboard
+<img width="32766" height="21" alt="image" src="https://github.com/user-attachments/assets/31650a91-d670-4219-8efb-2b9ebe95fb86" /># Patient-Wait-Time-and-Appointment-Efficiency-Analytics-Dashboard
 # Patient Flow Optimization Dashboard
 
-### Wait Time, Appointment Scheduling, and No-Show Analytics
+### Wait Time Analytics
 
 ## 📌 Project Overview
 
-This project presents a **Power BI dashboard** designed to analyze and optimize patient flow within a healthcare system. The focus is on identifying inefficiencies in **patient wait times, and  appointment scheduling** to improve service delivery and operational performance.
+This project presents a **Power BI dashboard** designed to analyze and optimize patient flow within a healthcare system. The focus is on identifying inefficiencies in **patient wait times** to improve service delivery and operational performance.
 
-By leveraging healthcare data, the dashboard provides actionable insights into how patients move through the system from appointment booking to service completion highlighting bottlenecks and areas for improvement.
+By leveraging healthcare data, the dashboard provides actionable insights into patient wait lists by analyzing wait times across different departments, enabling the identification of delays, operational bottlenecks, and opportunities to improve access to care and overall service efficiency.
 
 ---
 
@@ -62,14 +62,17 @@ The primary goal of this dashboard is to transform raw clinical data into action
 
 ## 📂 Dataset
 
-The dataset includes:
+The dataset includes for 2018- 2021:
 
-* Patient demographics (age group, category)
-* Appointment details (date, time band, status)
-* Wait time metrics
-* Department/specialty information
+* Dataset for inpatient - Archive_Date	Specialty_HIPE	Specialty_Name	Case_Type	Adult_Child	Age_Profile	Time_Bands	Total
+* Dataset for Outpatient - Archive_Date	Specialty_HIPE	Speciality	Adult_Child	Age_Profile	Time_Bands	Total
+* Mapping Speciality
 
 ---
+
+## Data Preprocessing and Transformation
+
+## Measures
 
 ## 🚀 Live Dashboard
 👉 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMDM4ZGRjZjEtYzJkMi00YmY4LTliNTktMTZjNDNiN2Y0ZjNjIiwidCI6IjBmYmVhNWZhLWNiN2UtNDllYS1hYzgyLTJmYTBmZTllZjY5YyJ9)

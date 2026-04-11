@@ -1,7 +1,4 @@
-<img width="32766" height="21" alt="image" src="https://github.com/user-attachments/assets/31650a91-d670-4219-8efb-2b9ebe95fb86" /># Patient-Wait-Time-and-Appointment-Efficiency-Analytics-Dashboard
-# Patient Flow Optimization Dashboard
-
-### Wait Time Analytics
+# Patient-Wait-Time-and-Appointment-Efficiency-Analytics-Dashboard
 
 ## 📌 Project Overview
 
@@ -48,7 +45,6 @@ The primary goal of this dashboard is to transform raw clinical data into action
 
 * **Holistic Service Delivery:** Integrates multiple operational metrics into a unified “control tower” view, enabling a shift from reactive management to proactive, data-driven patient flow optimization.
 
-
 ---
 
 ## 🛠️ Tools & Technologies
@@ -56,27 +52,162 @@ The primary goal of this dashboard is to transform raw clinical data into action
 * **Power BI** (Data visualization & dashboarding)
 * **DAX** (Calculated measures & KPIs)
 * **Excel / CSV** (Data source)
-
-
 ---
 
 ## 📂 Dataset
 
-The dataset includes for 2018- 2021:
+### 🏥 Inpatient Dataset (2018–2021)
 
-* Dataset for inpatient - Archive_Date	Specialty_HIPE	Specialty_Name	Case_Type	Adult_Child	Age_Profile	Time_Bands	Total
-* Dataset for Outpatient - Archive_Date	Specialty_HIPE	Speciality	Adult_Child	Age_Profile	Time_Bands	Total
-* Mapping Speciality
+This dataset contains information related to inpatient waitlists across different specialties and demographic groups, covering the period **2018 to 2021**.
+
+#### **Columns**
+- **Archive_Date**: The date when the data snapshot was recorded (2018–2021)  
+- **Specialty_HIPE**: Unique identifier for the medical specialty  
+- **Specialty_Name**: Name of the medical specialty  
+- **Case_Type**: Type of case (e.g., elective, emergency)  
+- **Adult_Child**: Indicates whether the patient is an adult or child  
+- **Age_Profile**: Age grouping of patients  
+- **Time_Bands**: Categorization of waiting time durations  
+- **Total**: Number of patients within each category  
 
 ---
 
-## Data Preprocessing and Transformation
+### 🏥 Outpatient Dataset (2018–2021)
 
-## Measures
+This dataset captures outpatient waitlist data, focusing on patient distribution across specialties and waiting times, covering the period **2018 to 2021**.
+
+#### **Columns**
+- **Archive_Date**: The date when the data snapshot was recorded (2018–2021)  
+- **Specialty_HIPE**: Unique identifier for the medical specialty  
+- **Speciality**: Name of the medical specialty  
+- **Adult_Child**: Indicates whether the patient is an adult or child  
+- **Age_Profile**: Age grouping of patients  
+- **Time_Bands**: Categorization of waiting time durations  
+- **Total**: Number of patients within each category  
+
+---
+
+### 🔗 Specialty Mapping Dataset
+
+This dataset provides a mapping between individual specialties and their broader specialty groups.
+
+#### **Columns**
+- **Speciality**: Name of the medical specialty  
+- **Speciality_Group**: Higher-level grouping of related specialties  
+
+---
+
+## 🧹 Data Preprocessing and Transformation
+
+The following steps were performed to prepare the inpatient and outpatient datasets for integration and analysis:
+
+- **Data Standardization**  
+  Standardized column structures across both inpatient and outpatient datasets to enable seamless merging into a unified dataset (*All_Data*).
+
+- **Column Renaming**  
+  Renamed columns to ensure consistency in naming conventions (e.g., aligning *Specialty_Name* and *Speciality*).
+
+- **Handling Missing Values**  
+  Removed null or irrelevant columns to improve data quality and reduce noise in analysis.
+
+- **Data Cleaning (Time Bands)**  
+  Standardized inconsistent values by combining:
+  - `18 Months+`
+  - `18+ Months`  
+  into a single unified category for accurate reporting.
+
+---
+
+## 🧩 Data Modelling
+
+The data model was designed to integrate inpatient and outpatient datasets into a unified structure for analysis and reporting.
+
+---
+
+### 🔗 Dataset Integration
+
+- The **Inpatient** and **Outpatient** datasets were combined to form a single consolidated dataset called **`All_Data`**.
+- This unified dataset enables consistent analysis across both patient types.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e98ef374-d034-492d-b3b8-5aca95ac465c" alt="All Data Model" width="600"/>
+</p>
+
+---
+
+### 🔗 Relationship with Mapping Table
+
+- The **`All_Data`** table was joined with the **Mapping Speciality** table.
+- The join was performed using the **`Speciality_Name`** column.
+- This relationship allows specialties to be grouped into higher-level categories for better aggregation and reporting.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/82055776-5334-407a-beab-d945cf041b0b" alt="Mapping Relationship" width="600"/>
+</p>
+ 
+---
+
+## 📌 All Measures
+
+```DAX
+-- Average Wait List
+Average Wait List = 
+AVERAGE(All_Data[Total])
+
+-- Median Wait List
+Median Wait List = 
+MEDIAN(All_Data[Total])
+
+-- Dynamic Average / Median
+Avg/Median Wait List =
+SWITCH(
+    VALUES('Calculation Method'[Calc Method]),
+    "Average", [Average Wait List],
+    "Median", [Median Wait List]
+)
+
+-- Latest Month Wait List
+Latest Month Wait List =
+CALCULATE(
+    SUM(All_Data[Total]),
+    All_Data[Archive_Date] = MAX(All_Data[Archive_Date])
+)
+
+-- Previous Year Latest Month Wait List
+PY Latest Month Wait List =
+VAR CurrentMaxDate = MAX(All_Data[Archive_Date])
+RETURN
+CALCULATE(
+    SUM(All_Data[Total]),
+    MONTH(All_Data[Archive_Date]) = MONTH(CurrentMaxDate),
+    YEAR(All_Data[Archive_Date]) = YEAR(CurrentMaxDate) - 1
+) + 0
+
+-- No Data Indicator
+NoDataLeft =
+IF(
+    ISBLANK(
+        CALCULATE(
+            SUM(All_Data[Total]),
+            All_Data[Case_Type] <> "Out Patient"
+        )
+    ),
+    "No Data for selected criteria",
+    " "
+)
+
+-- Dynamic Title
+Dynamic Title =
+SWITCH(
+    VALUES('Calculation Method'[Calc Method]),
+    "Average", "Key Indicators - Patient Wait List (Average)",
+    "Median", "Key Indicators - Patient Wait List (Median)"
+)
+```
+---
 
 ## 🚀 Live Dashboard
 👉 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMDM4ZGRjZjEtYzJkMi00YmY4LTliNTktMTZjNDNiN2Y0ZjNjIiwidCI6IjBmYmVhNWZhLWNiN2UtNDllYS1hYzgyLTJmYTBmZTllZjY5YyJ9)
-
 
 ---
 
@@ -86,6 +217,59 @@ The dataset includes for 2018- 2021:
 
 ---
 
+## 📊 Results & Insights
+
+- The **total wait list** for the latest archived month was **709,000**, representing an increase of **640,000 compared to the previous year**.
+
+- **Patient distribution**:
+  - Outpatient: **74%**
+  - Day Case (Inpatient): **15%**
+  - Inpatient: **10%**
+
+- **Wait Time Analysis**:
+  - The **0–3 months** category recorded the highest number of cases.
+  - The **40–60 age group** was the most dominant among patients.
+
+- **Top 5 Specialties (Median Wait List)**:
+  - Accident & Emergency: **70**
+  - Dermatology: **35**
+  - Clinical (Medical): **29**
+  - Cardiology: **28**
+  - Pain Relief: **27**
+
+- **Top 5 Specialties (Average Wait List)**:
+  - Paediatric Dermatology: **168**
+  - Paediatric ENT: **148**
+  - Paediatric Orthopaedic: **115**
+  - Accident & Emergency: **111**
+  - Paediatric Cardiology: **102**
+
+- **Monthly Trend**:
+  - Outpatient volumes peaked at **~5.4K in 2019** but declined to **~3.3K by 2021**.
+  - Day Cases showed steady growth, exceeding **300 cases in 2020**.
+  - Inpatient volumes remained **low and stable**, rarely exceeding **27 cases**.
+  - Overall trend suggests a shift toward **shorter-stay treatments**.
+
+---
+
+## 💡 Recommendations
+
+- **Optimize Outpatient Services**  
+  Address the decline in outpatient volumes by improving scheduling efficiency and reducing bottlenecks.
+
+- **Expand Day Case Capacity**  
+  Invest in day-case infrastructure, as demand is increasing and aligns with shorter treatment cycles.
+
+- **Target High-Wait Specialties**  
+  Prioritize resource allocation for specialties with high median and average wait lists (e.g., A&E, Dermatology).
+
+- **Focus on Early-stage Wait Times (0–3 Months)**  
+  Implement early intervention strategies to manage the largest patient group effectively.
+
+- **Age-Specific Planning**  
+  Tailor services and resource allocation to the **40–60 age group**, which represents the majority of patients.
+
+---
 ## 🤝 Contribution
 
 Contributions, feedback, and suggestions are welcome. Feel free to fork the repository and submit a pull request.

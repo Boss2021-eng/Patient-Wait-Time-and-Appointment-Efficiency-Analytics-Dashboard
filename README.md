@@ -194,8 +194,8 @@ SWITCH(
 ---
 
 ## 📸 Dashboard Preview
-<img width="869" height="488" alt="image" src="https://github.com/user-attachments/assets/fb07272c-ebc6-4f1a-9874-fec40837c0e0" />
-<img width="867" height="441" alt="image" src="https://github.com/user-attachments/assets/fa065225-9c43-4e4a-9758-2c41df4fa420" />
+<img width="1013" height="569" alt="image" src="https://github.com/user-attachments/assets/0ccc30d4-bb8d-44ea-80cf-dccba238cf44" />
+<img width="1020" height="572" alt="image" src="https://github.com/user-attachments/assets/27e7d44f-9a34-4807-9847-0d09c1f24f88" />
 
 ---
 

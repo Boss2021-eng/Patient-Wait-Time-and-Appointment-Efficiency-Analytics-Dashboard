@@ -29,24 +29,6 @@ The primary goal of this dashboard is to transform raw clinical data into action
 
 ---
 
-## 🧠 Insights Delivered
-
-## 📊 Key Insights & Analytical Value
-
-* **Patient Mix Analysis:** Segments workload into Day Case, Inpatient, and Outpatient categories to optimize bed utilization, resource allocation, and surgical suite turnover.
-
-* **Demographic Peak-Time Mapping:** Identifies distinct arrival patterns across age groups (e.g., Pediatric vs. Geriatric), enabling precision workforce planning and improved service delivery.
-
-* **Seasonality & Trend Forecasting:** Detects recurring monthly fluctuations in patient volume, supporting proactive capacity planning and preparedness for high-demand periods.
-
-* **Specialty Performance Tracking:** Ranks departments by patient volume and operational pressure, highlighting high-demand areas that may require additional staffing or resource investment.
-
-* **Efficiency & Access Metrics:** Compares average versus median wait times to uncover process inefficiencies, outliers, and bottlenecks impacting patient experience.
-
-* **Holistic Service Delivery:** Integrates multiple operational metrics into a unified “control tower” view, enabling a shift from reactive management to proactive, data-driven patient flow optimization.
-
----
-
 ## 🛠️ Tools & Technologies
 
 * **Power BI** (Data visualization & dashboarding)

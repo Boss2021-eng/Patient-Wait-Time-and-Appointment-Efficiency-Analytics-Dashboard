@@ -1,4 +1,5 @@
 # Patient-Wait-Time-and-Appointment-Efficiency-Analytics-Dashboard
+This project, built with Microsoft Power BI, provides real-time insights into patient flow, wait times, and appointment scheduling performance. It identifies bottlenecks across departments, enabling data-driven decisions to improve service delivery and reduce delays
 
 ## 📌 Project Overview
 

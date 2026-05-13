@@ -9,7 +9,7 @@ By leveraging healthcare data, the dashboard provides actionable insights into p
 ---
 
 ## 🎯 Objectives
-The primary goal of this dashboard is to transform raw clinical data into actionable operational intelligence. It is engineered to address five core pillars:
+The primary goal of this dashboard is to transform raw clinical data into actionable operational intelligence. It is engineered to address four core pillars:
 
 * **Optimize Resource Allocation**: Provide a granular view of patient distribution across case types (Inpatient, Outpatient, Day Case) to ensure beds, staff, and equipment are deployed where demand is most critical.
 

@@ -1,5 +1,9 @@
 # Patient-Wait-Time-and-Appointment-Efficiency-Analytics-Dashboard
 
+## 🚀 Live Dashboard
+👉 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMDM4ZGRjZjEtYzJkMi00YmY4LTliNTktMTZjNDNiN2Y0ZjNjIiwidCI6IjBmYmVhNWZhLWNiN2UtNDllYS1hYzgyLTJmYTBmZTllZjY5YyJ9)
+
+
 ## 📌 Project Overview
 
 This project presents a **Power BI dashboard** designed to analyze and optimize patient flow within a healthcare system. The focus is on identifying inefficiencies in **patient wait times** to improve service delivery and operational performance.
@@ -188,10 +192,6 @@ SWITCH(
 ```
 ---
 
-## 🚀 Live Dashboard
-👉 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMDM4ZGRjZjEtYzJkMi00YmY4LTliNTktMTZjNDNiN2Y0ZjNjIiwidCI6IjBmYmVhNWZhLWNiN2UtNDllYS1hYzgyLTJmYTBmZTllZjY5YyJ9)
-
----
 
 ## 📸 Dashboard Preview
 <img width="1013" height="569" alt="image" src="https://github.com/user-attachments/assets/0ccc30d4-bb8d-44ea-80cf-dccba238cf44" />
